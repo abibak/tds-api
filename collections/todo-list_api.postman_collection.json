@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "c9d4d4f7-ae12-404b-93de-cbb3cc1c4941",
+		"name": "todo-list_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14155044"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = JSON.parse(responseBody)\r",
+											"pm.collectionVariables.set(\"access_token\", response.data.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@mail.ru\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/login"
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"admin\",\r\n    \"email\": \"admin@fmail.ru\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Get user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/get-user"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TodoList",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}/api/todo-list/"
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user id = 1\",\r\n    \"user_id\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/todo-list/create"
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}/api/todo-list/3"
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"return тоьк\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/todo-list/update/4"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{host}}/api/todo-list/delete/8"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Todo",
+					"item": [
+						{
+							"name": "Index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"test name 1\",\r\n    \"user_id\": \"16\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/todo"
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"добавил с политикой\",\r\n    \"todo_list_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/todo/create"
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"обновил имя\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/todo/update/22"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{access_token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{host}}/api/todo/delete/20"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:9090\n",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
