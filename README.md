@@ -39,12 +39,7 @@ cd ./frontend
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск сервера разработки
 ```
 npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
 ```
