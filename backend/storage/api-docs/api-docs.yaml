@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Todo-List API
+  version: 0.0.1
+paths:
+  /todo-list/create:
+    post:
+      summary: Creating Todo-List.
+      tags:
+        - Todo-list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ name, user_id ]
+              properties:
+                name:
+                  type: string
+                  example: "New Todo List"
+                user_id:
+                  type: integer
+                  example: 10
+
+      responses:
+        201:
+          description: JSON created Todo-List
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                    format: date-time
+                  updated_at:
+                    type: string
+                    format: date-time
+
+
