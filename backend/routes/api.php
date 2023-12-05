@@ -26,14 +26,12 @@ Route::middleware('auth:api')->group(function() {
     /* Todo-list routes */
     Route::get('/todo-list/', [TodoListController::class, 'index']);
     Route::post('/todo-list/create', [TodoListController::class, 'create']);
-    Route::get('/todo-list/{id}', [TodoListController::class, 'show']);
+    Route::get('/todo-list/show/{id}', [TodoListController::class, 'show']);
     Route::put('/todo-list/update/{id}', [TodoListController::class, 'update']);
     Route::delete('/todo-list/delete/{id}', [TodoListController::class, 'destroy']);
 
     /* Todo routes */
-    Route::get('/todo/', [TodoController::class, 'index']);
     Route::post('/todo/create', [TodoController::class, 'create']);
-    Route::get('/todo/{id}', [TodoController::class, 'show']);
     Route::put('/todo/update/{id}', [TodoController::class, 'update']);
     Route::delete('/todo/delete/{id}', [TodoController::class, 'destroy']);
 });

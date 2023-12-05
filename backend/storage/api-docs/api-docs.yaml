@@ -235,7 +235,7 @@ paths:
                     example: Created.
         401:
           $ref: '#/components/responses/UnauthorizedError'
-  /api/todo-list/show/:
+  /api/todo-list/show/{id}:
     get:
       summary: Show.
       description: Show by id Todo-List.
@@ -244,7 +244,7 @@ paths:
       tags:
         - Todo-List
       parameters:
-        - in: query
+        - in: path
           name: id
           required: true
           schema:
@@ -302,7 +302,7 @@ paths:
       tags:
         - Todo-List
       parameters:
-        - in: query
+        - in: path
           name: id
           required: true
           schema:
@@ -353,7 +353,7 @@ paths:
       tags:
         - Todo-List
       parameters:
-        - in: query
+        - in: path
           name: id
           required: true
           schema:
@@ -429,7 +429,7 @@ paths:
       tags:
         - Todo
       parameters:
-        - in: query
+        - in: path
           name: id
           required: true
           schema:
@@ -480,7 +480,7 @@ paths:
       tags:
         - Todo
       parameters:
-        - in: query
+        - in: path
           name: id
           required: true
           schema:

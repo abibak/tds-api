@@ -5,9 +5,8 @@ namespace App\Exceptions;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -40,6 +39,10 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof AuthenticationException) {
             throw new APIException('Not authorized.', 401);
+        }
+
+        if ($e instanceof NotFoundHttpException) {
+            throw new APIException('Not found', 404);
         }
 
         return parent::render($request, $e);
