@@ -39,7 +39,7 @@ export default createStore({
         },
 
         sendRequestLoginUser({commit}, data) {
-            instance.post(process.env.VUE_APP_API_URL + '/login', {
+            instance.post(process.env.VUE_APP_API_URL + '/user/login', {
                 email: data.email,
                 password: data.password,
             }).then(response => {
@@ -50,7 +50,7 @@ export default createStore({
         },
 
         sendRequestGetUser({commit}) {
-            instance.get(process.env.VUE_APP_API_URL + '/get-user')
+            instance.get(process.env.VUE_APP_API_URL + '/user/get-user')
                 .then(response => {
                     commit('setUserData', response.data.data);
                 }).catch(response => {
