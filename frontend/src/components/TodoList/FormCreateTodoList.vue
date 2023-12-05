@@ -23,7 +23,7 @@ export default {
         ...mapActions(['sendRequestCreateTodoList']),
 
         createTodoList() {
-          if (this.todoListName.length > 1) {
+          if (this.todoListName.length > 0) {
               this.sendRequestCreateTodoList(this.todoListName);
               this.todoListName = '';
           }

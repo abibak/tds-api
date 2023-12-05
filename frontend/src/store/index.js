@@ -38,13 +38,13 @@ export default createStore({
             });
         },
 
-        sendRequestLoginUser({commit}, data) {
+        sendRequestLoginUser({commit, dispatch}, data) {
             instance.post(process.env.VUE_APP_API_URL + '/user/login', {
                 email: data.email,
                 password: data.password,
             }).then(response => {
-                console.log(response.data.data);
                 commit('setUserData', response.data.data.user);
+                dispatch('sendRequestGetTodos');
                 localStorage.setItem('access_token', response.data?.data.access_token);
             });
         },

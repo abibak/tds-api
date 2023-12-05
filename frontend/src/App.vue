@@ -35,16 +35,14 @@ export default {
     components: {FormCreateTodoList, TodoList},
 
     mounted() {
-        instance.interceptors.request.use((config) => {
-            config.headers = {
-                'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-            }
+        const access_token = localStorage.getItem('access_token');
 
-            return config;
-        });
+        this.initConfigInstance(access_token);
 
-        this.sendRequestGetUser();
-        this.sendRequestGetTodos();
+        if (access_token) {
+            this.sendRequestGetUser();
+            this.sendRequestGetTodos();
+        }
     },
 
     data() {
@@ -65,7 +63,19 @@ export default {
             this.sendRequestLoginUser({
                 email: this.email,
                 password: this.password,
-            })
+            });
+
+            this.initConfigInstance();
+        },
+
+        initConfigInstance() {
+            instance.interceptors.request.use((config) => {
+                config.headers = {
+                    'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                }
+
+                return config;
+            });
         },
     }
 }

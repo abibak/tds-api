@@ -30,11 +30,12 @@ export default {
         ...mapActions(['sendRequestCreateTodo']),
 
         createTodo() {
-            if (this.todoName.length > 1) {
+            if (this.todoName.length > 0) {
                 this.sendRequestCreateTodo({
                     name: this.todoName,
                     todoListId: this.todoListId
                 });
+                this.todoName = '';
             }
         },
     },
