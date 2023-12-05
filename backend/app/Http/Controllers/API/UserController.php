@@ -48,6 +48,7 @@ class UserController extends Controller
     {
         return response()->json([
             'data' => auth()->user(),
+            'message' => 'Received.'
         ], 200);
     }
 }

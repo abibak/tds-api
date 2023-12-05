@@ -47,7 +47,7 @@
 										}
 									}
 								},
-								"url": "{{host}}/api/login"
+								"url": "{{host}}/api/user/login"
 							},
 							"response": []
 						},
@@ -65,7 +65,7 @@
 										}
 									}
 								},
-								"url": "{{host}}/api/register"
+								"url": "{{host}}/api/user/register"
 							},
 							"response": []
 						},
@@ -92,7 +92,7 @@
 										}
 									}
 								},
-								"url": "{{host}}/api/get-user"
+								"url": "{{host}}/api/user/get-user"
 							},
 							"response": []
 						}
@@ -151,7 +151,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{host}}/api/todo-list/3"
+								"url": "{{host}}/api/todo-list/14"
 							},
 							"response": []
 						},
@@ -175,7 +175,7 @@
 										}
 									}
 								},
-								"url": "{{host}}/api/todo-list/update/4"
+								"url": "{{host}}/api/todo-list/update/14"
 							},
 							"response": []
 						},
@@ -190,7 +190,7 @@
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{host}}/api/todo-list/delete/8"
+								"url": "{{host}}/api/todo-list/delete/14"
 							},
 							"response": []
 						}
@@ -199,33 +199,6 @@
 				{
 					"name": "Todo",
 					"item": [
-						{
-							"name": "Index",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{access_token}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"test name 1\",\r\n    \"user_id\": \"16\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{host}}/api/todo"
-							},
-							"response": []
-						},
 						{
 							"name": "Create",
 							"request": {
@@ -239,7 +212,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"добавил с политикой\",\r\n    \"todo_list_id\": 2\r\n}",
+									"raw": "{\r\n    \"name\": \"добавил с политикой\",\r\n    \"todo_list_id\": 16\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -270,7 +243,7 @@
 										}
 									}
 								},
-								"url": "{{host}}/api/todo/update/22"
+								"url": "{{host}}/api/todo/update/25"
 							},
 							"response": []
 						},

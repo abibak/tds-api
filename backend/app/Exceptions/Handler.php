@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler
         }
 
         if ($e instanceof AuthenticationException) {
-            throw new APIException('Not authorized.', 403);
+            throw new APIException('Not authorized.', 401);
         }
 
         return parent::render($request, $e);

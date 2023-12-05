@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', [UserController::class, 'login']);
-Route::post('/register', [UserController::class, 'register']);
+Route::post('user/login', [UserController::class, 'login']);
+Route::post('user/register', [UserController::class, 'register']);
 
 Route::middleware('auth:api')->group(function() {
-    Route::get('/get-user', [UserController::class, 'get_user']);
+    Route::get('/user/get-user', [UserController::class, 'get_user']);
 
     /* Todo-list routes */
     Route::get('/todo-list/', [TodoListController::class, 'index']);
