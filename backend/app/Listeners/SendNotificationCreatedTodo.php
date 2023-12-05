@@ -28,6 +28,6 @@ class SendNotificationCreatedTodo
      */
     public function handle(CreatedTodo $event)
     {
-        Mail::to('leosan.kiras@gmail.com')->send(new CreatedTodoEmail(auth()->user()));
+        Mail::to('admin@mail.ru')->send(new CreatedTodoEmail(auth()->user()));
     }
 }
